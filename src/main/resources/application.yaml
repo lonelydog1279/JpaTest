@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: JPATest
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/ins-wellness-tracker-db?useUnicode=true&characterEncoding=utf8
+    username: postgresdocker
+    password: postgresdocker
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: UserHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  jpa:
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  data:
+    mongodb:
+      host: localhost:6666
+      username: mongodocker
+      password: mongodocker
+      database: mongodb
+      authentication-database: admin
+logging:
+  level:
+    com.example.jpatest: INFO
+
